@@ -10,4 +10,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'Nil-Dankhara-Learning-Angular';
+  name ="Nil Dankhara"
+  id = "W0859772"
+
 }
