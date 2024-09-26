@@ -1,6 +1,5 @@
-<app-bike-list-item [bike]="bikeList[0]"></app-bike-list-item>
-<app-bike-list-item [bike]="bikeList[1]"></app-bike-list-item>
-<app-bike-list-item [bike]="bikeList[2]"></app-bike-list-item>
-<app-bike-list-item [bike]="bikeList[3]"></app-bike-list-item>
-<app-bike-list-item [bike]="bikeList[4]"></app-bike-list-item>
-<app-bike-list-item [bike]="bikeList[5]"></app-bike-list-item>
+<div *ngFor="let bikes of bikeList, let i = index">
+  <app-bike-list-item [bike]="bikes" [ngClass]="{'even-item': i % 2 === 0, 'odd-item': i !== 0}"></app-bike-list-item>
+</div>
+
+

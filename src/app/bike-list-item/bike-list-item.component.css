@@ -1,4 +1,14 @@
 div {
   border: 2px solid black;
-
 }
+
+
+.even-item {
+  background-color: pink;
+}
+
+.odd-item {
+  background-color: teal;
+}
+
+

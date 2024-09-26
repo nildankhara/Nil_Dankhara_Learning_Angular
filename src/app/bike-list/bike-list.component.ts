@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NgForOf} from "@angular/common";
+import {NgClass, NgForOf} from "@angular/common";
 import {Bike} from "../Shared/Bike";
 import {BikeListItemComponent} from "../bike-list-item/bike-list-item.component";
 
@@ -8,7 +8,8 @@ import {BikeListItemComponent} from "../bike-list-item/bike-list-item.component"
   standalone: true,
   imports: [
     NgForOf,
-    BikeListItemComponent
+    BikeListItemComponent,
+    NgClass
   ],
   templateUrl: './bike-list.component.html',
   styleUrl: './bike-list.component.css'
