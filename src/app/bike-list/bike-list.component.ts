@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NgClass, NgForOf} from "@angular/common";
+import {NgClass, NgForOf, NgStyle} from "@angular/common";
 import {Bike} from "../Shared/Bike";
 import {BikeListItemComponent} from "../bike-list-item/bike-list-item.component";
 
@@ -9,7 +9,8 @@ import {BikeListItemComponent} from "../bike-list-item/bike-list-item.component"
   imports: [
     NgForOf,
     BikeListItemComponent,
-    NgClass
+    NgClass,
+    NgStyle
   ],
   templateUrl: './bike-list.component.html',
   styleUrl: './bike-list.component.css'

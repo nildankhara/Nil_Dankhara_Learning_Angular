@@ -1,5 +1,5 @@
-<div *ngFor="let bikes of bikeList, let i = index">
-  <app-bike-list-item [bike]="bikes" [ngClass]="{'even-item': i % 2 === 0, 'odd-item': i !== 0}"></app-bike-list-item>
+<div *ngFor="let bikes of bikeList, let i = index; even as isEven" [ngStyle]="{'background-color': isEven ? 'skyblue' : 'indianred'}">
+  <app-bike-list-item [bike]="bikes" ></app-bike-list-item>
 </div>
 
 
