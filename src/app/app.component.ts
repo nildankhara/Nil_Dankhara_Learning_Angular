@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {Bike} from "./Shared/Bike";
 import {NgForOf} from "@angular/common";
 import {BikeListComponent} from "./bike-list/bike-list.component";
@@ -9,7 +9,7 @@ import {BikeService} from "./services/bike.service";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, BikeListComponent, BikeListItemComponent],
+  imports: [RouterOutlet, NgForOf, BikeListComponent, BikeListItemComponent, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -1,4 +1,15 @@
 
-<app-bike-list-item [bike]="selectedBike"></app-bike-list-item>
 
-<app-bike-list></app-bike-list>
+<nav>
+  <ul>
+    <li><a routerLink="/bikes" routerLinkActive="active">Bikes</a></li>
+    <li><a routerLink="/bikes/:number" routerLinkActive="active">Bike Number</a></li>
+    <li><a routerLink="/modify-bike" routerLinkActive="active">Modify Bike</a></li>
+    <li><a routerLink="/*" routerLinkActive="active">Page not found</a></li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
+<!--<app-bike-list-item [bike]="selectedBike"></app-bike-list-item>-->
+
+<!--<app-bike-list></app-bike-list>-->

@@ -4,4 +4,5 @@ export interface Bike {
   model: number;
   color: string;
   isAdmin: boolean;
+  imgURL: string;
 }
