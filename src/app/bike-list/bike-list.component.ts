@@ -17,10 +17,13 @@ import {BikeService} from "../services/bike.service";
   styleUrl: './bike-list.component.css'
 })
 export class BikeListComponent {
-  bikeList: Bike[] =[];
+  bikeList: Bike[] = [];
+
   constructor(private bikeService: BikeService) {
   }
-  ngOnInit() {
+
+  ngOnInit(): void {
+    // @ts-ignore
     this.bikeService.getBikes().subscribe({
       next: (data: Bike[]) => this.bikeList = data,
       error: error => console.log(error),
@@ -29,3 +32,4 @@ export class BikeListComponent {
   }
 
 }
+

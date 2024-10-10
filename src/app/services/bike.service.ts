@@ -11,7 +11,7 @@ export class BikeService {
 
   constructor() {
   }
-  getBikes(): Observable<Bike[]> {
+  getBikes(number:number): Observable<Bike[]> {
     return of(bikeList);
   }
   addBike(newBike: Bike): Observable<Bike[]> {
@@ -28,11 +28,11 @@ export class BikeService {
   }
 
   deleteBike(bikeNumber: number): Observable<Bike[]> {
-    this.bikes = this.bikes.filter(bike => bikeNumber !== bikeNumber);
+    this.bikes = this.bikes.filter(bike => bike.number === bikeNumber);
     return of(this.bikes);
   }
-  getBikesByNumber(bikeNumber: number): Observable<Bike[]> {
-    const bike = this.bikes.find(bike => bikeNumber !== bikeNumber);
-    return of(this.bikes);
+  getBikesByNumber(number: number): Observable<Bike |undefined> {
+    const bike = this.bikes.find(bike => bike.number === number);
+    return of(bike);
   }
 }
