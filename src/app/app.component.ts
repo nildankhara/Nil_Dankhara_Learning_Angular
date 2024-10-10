@@ -16,6 +16,7 @@ import {BikeService} from "./services/bike.service";
 export class AppComponent implements OnInit {
 
   selectedBike?: Bike | undefined;
+  title: "Nil Dankhara" | undefined;
 
   constructor(private bikeService: BikeService) {
   }
