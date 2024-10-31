@@ -27,7 +27,7 @@ export class ModifyListItemComponent {
               private router: Router,
               private route : ActivatedRoute) {
     this.bikeForm = this.fb.group({
-      number:['',Validators.required, Validators.pattern('^[0-9]+$')],
+      number:['',Validators.required],
       name:['', Validators.required],
       model: ['', Validators.required],
       color: ['', Validators.required],
@@ -48,7 +48,7 @@ export class ModifyListItemComponent {
   }
   onSubmit(): void {
     const bike: Bike = this.bikeForm.value;
-if(this.bikeForm.invalid){
+  if(this.bikeForm.invalid){
       this.bikeService.updateBike(bike).subscribe(()=>{
         this.router.navigate(['/bikes']);
       });
