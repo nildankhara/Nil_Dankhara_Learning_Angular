@@ -6,6 +6,8 @@ import {BikeService} from "../services/bike.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
 
+
+
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
@@ -25,7 +27,7 @@ export class ModifyListItemComponent {
               private router: Router,
               private route : ActivatedRoute) {
     this.bikeForm = this.fb.group({
-      number:['',Validators.required],
+      number:['',Validators.required, Validators.pattern('^[0-9]+$')],
       name:['', Validators.required],
       model: ['', Validators.required],
       color: ['', Validators.required],
@@ -46,22 +48,22 @@ export class ModifyListItemComponent {
   }
   onSubmit(): void {
     const bike: Bike = this.bikeForm.value;
-
-    if (bike.number) {
+if(this.bikeForm.invalid){
       this.bikeService.updateBike(bike).subscribe(()=>{
         this.router.navigate(['/bikes']);
       });
     }
       else {
-       // This method will create a new ID
+      // This method will create a new ID
       bike.number = this.bikeService.generateNewNumber();
-      this.bikeService.addBike(bike).subscribe(()=>{
+      this.bikeService.addBike(bike).subscribe(() => {
         this.router.navigate(['/bikes']);
       });
+
+    }
     // Reseting form
       this.bikeForm.reset();
     }
-  }
 }
 
 
