@@ -48,14 +48,19 @@ export class ModifyListItemComponent {
     const bike: Bike = this.bikeForm.value;
 
     if (bike.number) {
-      this.bikeService.updateBike(bike)
-    } else {
+      this.bikeService.updateBike(bike).subscribe(()=>{
+        this.router.navigate(['/bikes']);
+      });
+    }
+      else {
        // This method will create a new ID
       bike.number = this.bikeService.generateNewNumber();
-      this.bikeService.addBike(bike);
-
+      this.bikeService.addBike(bike).subscribe(()=>{
+        this.router.navigate(['/bikes']);
+      });
+    // Reseting form
+      this.bikeForm.reset();
     }
-    this.router.navigate(['/bikes']);
   }
 }
 
