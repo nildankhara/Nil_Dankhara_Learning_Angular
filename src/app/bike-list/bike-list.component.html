@@ -1,5 +1,11 @@
+
+
 <div *ngFor="let bikes of bikeList, let i = index; even as isEven" [ngStyle]="{'background-color': isEven ? 'skyblue' : 'indianred'}">
-  <app-bike-list-item [bike]="bikes" ></app-bike-list-item>
+
+  <app-bike-list-item [bike]="bikes" >
+  </app-bike-list-item>
+  <button (click)="onEdit(bikes)">Edit bike</button>
+  <button (click)="deleteBike(bikes.number)">Delete bike</button>
 </div>
 
 

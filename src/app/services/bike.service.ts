@@ -11,28 +11,32 @@ export class BikeService {
 
   constructor() {
   }
-  getBikes(number:number): Observable<Bike[]> {
+  getBikes(): Observable<Bike[]> {
     return of(bikeList);
   }
   addBike(newBike: Bike): Observable<Bike[]> {
     this.bikes.push(newBike);
     return of(this.bikes);
   }
-
-  updateBike(updatedBike: Bike): Observable<Bike[]> {
-    const index = this.bikes.findIndex(bike => bike.number === updatedBike.number);
-    if (index !== -1) {
-      this.bikes[index] = updatedBike;
-    }
-    return of(this.bikes);
-  }
-
-  deleteBike(bikeNumber: number): Observable<Bike[]> {
-    this.bikes = this.bikes.filter(bike => bike.number === bikeNumber);
-    return of(this.bikes);
-  }
   getBikesByNumber(number: number): Observable<Bike |undefined> {
     const bike = this.bikes.find(bike => bike.number === number);
     return of(bike);
+  }
+
+  updateBike(updatedBike: Bike): Observable<Bike| undefined> {
+    const index = this.bikes.findIndex(bike => bike.number === updatedBike.number);
+    if (index > -1) {
+        this.bikes[index] = updatedBike;
+      return of(updatedBike);
+    }
+  return of(undefined);
+  }
+
+  deleteBike(bikeNumber: number): void {
+    this.bikes = this.bikes.filter(bike => bike.number !== bikeNumber);
+  }
+
+  generateNewNumber() {
+    return this.bikes.length>0 ? Math.max(...this.bikes.map(bike => bike.number)) + 1 :1;
   }
 }

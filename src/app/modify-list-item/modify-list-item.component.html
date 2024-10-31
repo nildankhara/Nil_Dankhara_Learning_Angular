@@ -1,2 +1,28 @@
-<p>modify-list-item works!</p>
-<app-page-not-found></app-page-not-found>
+<form [formGroup]="bikeForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="number">Number</label>
+    <input type="number" id="number" formControlName="number"/>
+  </div>
+  <div>
+    <label for="name">Name</label>
+    <input type="text" id="name" formControlName="name"/>
+  </div>
+  <div>
+    <label for="model">Model</label>
+    <input type="number" id="model" formControlName="model"/>
+  </div>
+  <div>
+    <label for="color">Color</label>
+    <input type="text" id="color" formControlName="color"/>
+  </div>
+  <div>
+    <label for="isAdmin">IsAdmin</label>
+    <input type="checkbox" id="isAdmin" formControlName="admin"/>
+  </div>  <div>
+<!--    <label for="image">Upload Image</label>-->
+<!--    <input type="file" id="image" formControlName="imgURL"/>-->
+<!--  </div>-->
+
+  <button type="submit">Submit</button>
+</div>
+</form>

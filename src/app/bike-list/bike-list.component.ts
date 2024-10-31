@@ -3,6 +3,7 @@ import {NgClass, NgForOf, NgStyle} from "@angular/common";
 import {Bike} from "../Shared/Bike";
 import {BikeListItemComponent} from "../bike-list-item/bike-list-item.component";
 import {BikeService} from "../services/bike.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-bike-list',
@@ -19,17 +20,27 @@ import {BikeService} from "../services/bike.service";
 export class BikeListComponent {
   bikeList: Bike[] = [];
 
-  constructor(private bikeService: BikeService) {
+  constructor(private bikeService: BikeService, private router: Router) {
   }
 
   ngOnInit(): void {
-    // @ts-ignore
-    this.bikeService.getBikes().subscribe({
-      next: (data: Bike[]) => this.bikeList = data,
-      error: error => console.log(error),
-      complete: () => console.log("Bike fetched")
-    })
+this.bikeService.getBikes().subscribe({
+  next: (result) => {
+    this.bikeList = result;
+    }
+  });
   }
+  //
+  onEdit(bike: Bike) {
+    this.router.navigate(['/modify-bike',bike.number])
+  }
+
+
+  deleteBike(number: number) {
+    this.bikeService.deleteBike(number);
+    this.bikeList = this.bikeList.filter(bike => bike.number !== number);
+  }
+
 
 }
 

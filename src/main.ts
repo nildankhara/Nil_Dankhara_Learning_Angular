@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'bikes', component: BikeListComponent },
   { path: 'bikes/:number', component: BikeListItemComponent},
   { path: 'modify-bike', component: ModifyListItemComponent},
+  { path: 'modify-bike/:number', component: ModifyListItemComponent},
   { path: '*', component: PageNotFoundComponent}
 
 ];

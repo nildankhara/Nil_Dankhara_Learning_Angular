@@ -1,6 +1,9 @@
 import {Component, Input, input} from '@angular/core';
 import {Bike} from "../Shared/Bike";
 import {NgIf, NgOptimizedImage} from "@angular/common";
+import {BikeService} from "../services/bike.service";
+import {Router} from "@angular/router";
+import {Observable, of} from "rxjs";
 
 @Component({
   selector: 'app-bike-list-item',
@@ -14,5 +17,6 @@ import {NgIf, NgOptimizedImage} from "@angular/common";
 })
 export class BikeListItemComponent {
   @Input() bike?: Bike;
+
 
 }
