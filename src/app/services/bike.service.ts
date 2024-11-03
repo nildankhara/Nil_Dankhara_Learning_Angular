@@ -29,7 +29,7 @@ export class BikeService {
         this.bikes[index] = updatedBike;
       return of(updatedBike);
     }
-  return of(undefined);
+  return of(updatedBike);
   }
 
   deleteBike(bikeNumber: number): void {

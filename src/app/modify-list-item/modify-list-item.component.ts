@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {Bike} from "../Shared/Bike";
 import {BikeService} from "../services/bike.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {bikeList} from "../data/mock-bike";
 
 
 
@@ -32,6 +33,7 @@ export class ModifyListItemComponent {
       model: ['', Validators.required],
       color: ['', Validators.required],
       isAdmin: [false],
+      imgURL: [''],
 
     });
   }
@@ -48,18 +50,18 @@ export class ModifyListItemComponent {
   }
   onSubmit(): void {
     const bike: Bike = this.bikeForm.value;
-  if(this.bikeForm.invalid){
+  if(bike.number){
       this.bikeService.updateBike(bike).subscribe(()=>{
         this.router.navigate(['/bikes']);
       });
     }
       else {
       // This method will create a new ID
-      bike.number = this.bikeService.generateNewNumber();
+      const bikeNumber = this.bikeService.generateNewNumber();
+      bike.number = bikeNumber;
       this.bikeService.addBike(bike).subscribe(() => {
         this.router.navigate(['/bikes']);
       });
-
     }
     // Reseting form
       this.bikeForm.reset();

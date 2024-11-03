@@ -32,7 +32,7 @@ this.bikeService.getBikes().subscribe({
   }
   //
   onEdit(bike: Bike) {
-    this.router.navigate(['/modify-bike',bike.number])
+    this.router.navigate(['/modify-bike',bike])
   }
 
 
