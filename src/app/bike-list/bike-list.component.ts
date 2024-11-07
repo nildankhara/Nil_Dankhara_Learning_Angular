@@ -31,7 +31,7 @@ this.bikeService.getBikes().subscribe({
   });
   }
   //
-  onEdit(bike: Bike) {
+  onEdit(bike: Bike | undefined) {
     this.router.navigate(['/modify-bike',bike])
   }
 

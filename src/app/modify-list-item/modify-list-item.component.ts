@@ -20,16 +20,16 @@ import {bikeList} from "../data/mock-bike";
   styleUrl: './modify-list-item.component.css'
 })
 export class ModifyListItemComponent {
-  bikeForm : FormGroup;
-  bike: Bike | undefined;
+  bikeForm: FormGroup;
+  bike!: Bike;
 
   constructor(private bikeService: BikeService,
               private fb: FormBuilder,
               private router: Router,
-              private route : ActivatedRoute) {
+              private route: ActivatedRoute) {
     this.bikeForm = this.fb.group({
-      number:['',Validators.required],
-      name:['', Validators.required],
+      number: ['', Validators.required],
+      name: ['', Validators.required],
       model: ['', Validators.required],
       color: ['', Validators.required],
       isAdmin: [false],
@@ -37,35 +37,34 @@ export class ModifyListItemComponent {
 
     });
   }
+
   ngOnInit(): void {
     const number = this.route.snapshot.paramMap.get('number');
     if (number) {
       this.bikeService.getBikesByNumber(+number).subscribe(bike => {
-          if (bike) {
-            this.bike= bike;
-            this.bikeForm.patchValue(bike);
-          }
+        if (bike) {
+          this.bike = bike;
+          this.bikeForm.patchValue(bike);
+        }
       });
     }
   }
+
   onSubmit(): void {
     const bike: Bike = this.bikeForm.value;
-  if(bike.number){
-      this.bikeService.updateBike(bike).subscribe(()=>{
+    if (bike.number) {
+      this.bikeService.updateBike(bike).subscribe(() => {
         this.router.navigate(['/bikes']);
+        this.bikeForm.reset();
+      });
+    } else {
+      bike.number = this.bikeService.generateNewNumber();
+      this.bikeService.addBike(bike).subscribe(updatedBikes => {
+        this.router.navigate(['/bikes']);
+        this.bikeForm.reset();
       });
     }
-      else {
-      // This method will create a new ID
-      const bikeNumber = this.bikeService.generateNewNumber();
-      bike.number = bikeNumber;
-      this.bikeService.addBike(bike).subscribe(() => {
-        this.router.navigate(['/bikes']);
-      });
-    }
-    // Reseting form
-      this.bikeForm.reset();
-    }
+  }
 }
 
 

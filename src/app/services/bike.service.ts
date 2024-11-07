@@ -14,14 +14,17 @@ export class BikeService {
   getBikes(): Observable<Bike[]> {
     return of(bikeList);
   }
-  addBike(newBike: Bike): Observable<Bike[]> {
-    this.bikes.push(newBike);
-    return of(this.bikes);
-  }
+
   getBikesByNumber(number: number): Observable<Bike |undefined> {
     const bike = this.bikes.find(bike => bike.number === number);
     return of(bike);
   }
+
+  addBike(newBike: Bike): Observable<Bike[]> {
+    this.bikes.push(newBike);
+    return of(this.bikes);
+  }
+
 
   updateBike(updatedBike: Bike): Observable<Bike| undefined> {
     const index = this.bikes.findIndex(bike => bike.number === updatedBike.number);
@@ -29,7 +32,7 @@ export class BikeService {
         this.bikes[index] = updatedBike;
       return of(updatedBike);
     }
-  return of(updatedBike);
+  return of(undefined);
   }
 
   deleteBike(bikeNumber: number): void {

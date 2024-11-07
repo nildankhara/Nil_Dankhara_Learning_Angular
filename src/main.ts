@@ -10,6 +10,7 @@ import {ModifyListItemComponent} from "./app/modify-list-item/modify-list-item.c
 
 
 const routes: Routes = [
+  {path:'',redirectTo:'/bikes',pathMatch:'full'},
   { path: 'bikes', component: BikeListComponent },
   { path: 'bikes/:number', component: BikeListItemComponent},
   { path: 'modify-bike', component: ModifyListItemComponent},

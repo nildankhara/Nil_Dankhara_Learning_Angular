@@ -3,6 +3,6 @@ export interface Bike {
   name: string;
   model: number;
   color: string;
-  isAdmin: boolean;
+  isAdmin?: boolean;
   imgURL: string;
 }
