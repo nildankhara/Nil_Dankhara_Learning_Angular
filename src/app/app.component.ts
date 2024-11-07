@@ -5,24 +5,18 @@ import {NgForOf} from "@angular/common";
 import {BikeListComponent} from "./bike-list/bike-list.component";
 import {BikeListItemComponent} from "./bike-list-item/bike-list-item.component";
 import {BikeService} from "./services/bike.service";
+import {bikeList} from "./data/mock-bike";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, NgForOf, BikeListComponent, BikeListItemComponent, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
   selectedBike?: Bike | undefined;
   title: "Nil Dankhara" | undefined;
 
-  constructor(private bikeService: BikeService) {
-  }
-ngOnInit():void {
-  this.bikeService.getBikesByNumber(3).subscribe(bike=>{
-    this.selectedBike=bike;
-  })
-}
 }

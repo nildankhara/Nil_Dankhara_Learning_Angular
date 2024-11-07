@@ -26,3 +26,5 @@
   <button type="submit" [disabled]="bikeForm.invalid">Submit</button>
 </div>
 </form>
+
+<div *ngIf="error">{{ error }}</div>

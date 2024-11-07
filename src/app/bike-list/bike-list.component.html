@@ -7,5 +7,5 @@
   <button (click)="onEdit(bikes)">Edit bike</button>
   <button (click)="deleteBike(bikes.number)">Delete bike</button>
 </div>
-
+<div *ngIf="error" >{{ error }}</div>
 
