@@ -1,45 +1,48 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from "rxjs";
+import {catchError, Observable, of, throwError} from "rxjs";
 import {Bike} from "../Shared/Bike";
 import {bikeList} from "../data/mock-bike";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BikeService {
   private bikes: Bike[] = bikeList;
+  private apiUrl = 'api/bikes';
 
-  constructor() {
-  }
+
+  constructor(private http: HttpClient) {}
   getBikes(): Observable<Bike[]> {
-    return of(bikeList);
+    return this.http.get<Bike []>(this.apiUrl).pipe(catchError(this.handleError));
   }
 
-  getBikesByNumber(number: number): Observable<Bike |undefined> {
-    const bike = this.bikes.find(bike => bike.number === number);
-    return of(bike);
+  getBikesByNumber(number: number): Observable<Bike> {
+    return this.http.get<Bike>(`${this.apiUrl}/${number}`).pipe(catchError(this.handleError));
+
   }
 
-  addBike(newBike: Bike): Observable<Bike[]> {
-    this.bikes.push(newBike);
-    return of(this.bikes);
+  addBike(newBike: Bike): Observable<Bike> {
+    return this.http.post<Bike>(this.apiUrl, newBike).pipe(catchError(this.handleError));
   }
 
 
   updateBike(updatedBike: Bike): Observable<Bike| undefined> {
-    const index = this.bikes.findIndex(bike => bike.number === updatedBike.number);
-    if (index > -1) {
-        this.bikes[index] = updatedBike;
-      return of(updatedBike);
-    }
-  return of(undefined);
+    const url = `${this.apiUrl}/${updatedBike.number}`;
+    return this.http.put<Bike>(url, updatedBike).pipe(catchError(this.handleError));
   }
 
-  deleteBike(bikeNumber: number): void {
-    this.bikes = this.bikes.filter(bike => bike.number !== bikeNumber);
+  deleteBike(bikeNumber: number): Observable<{}> {
+    const url = `${this.apiUrl}/${bikeNumber}`;
+    return this.http.delete(url).pipe(catchError(this.handleError));
   }
 
-  generateNewNumber() {
+  generateNewNumber():number {
     return this.bikes.length>0 ? Math.max(...this.bikes.map(bike => bike.number)) + 1 :1;
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.error('API error:', error);
+    return throwError(() => new Error('Server Error'));
   }
 }
