@@ -1,6 +1,6 @@
 import {Component, Input, input} from '@angular/core';
 import {Bike} from "../Shared/Bike";
-import {NgIf, NgOptimizedImage} from "@angular/common";
+import {CurrencyPipe, DatePipe, NgIf, NgOptimizedImage, UpperCasePipe} from "@angular/common";
 import {BikeService} from "../services/bike.service";
 import {Router} from "@angular/router";
 import {Observable, of} from "rxjs";
@@ -9,7 +9,10 @@ import {Observable, of} from "rxjs";
   selector: 'app-bike-list-item',
   standalone: true,
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
+    UpperCasePipe,
+    CurrencyPipe,
+    DatePipe
 
   ],
   templateUrl: './bike-list-item.component.html',

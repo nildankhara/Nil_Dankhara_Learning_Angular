@@ -5,4 +5,6 @@ export interface Bike {
   color: string;
   isAdmin?: boolean;
   imgURL: string;
+  manuDate: Date;
+  price: number;
 }
