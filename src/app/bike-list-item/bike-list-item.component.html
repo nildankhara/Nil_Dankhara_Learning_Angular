@@ -11,7 +11,7 @@
         <img ngSrc="{{bike.imgURL}}" width="200" height="200" alt="">
     </h4>
 
-    <h3>Custom Pipe: {{ bike | bikeNameWithModel }}</h3>
+    <h3>Custom Pipe with tax: {{ bike | bikeNameWithModel |currency: 'CAD': "symbol-narrow" }}</h3>
 </div>
 
 

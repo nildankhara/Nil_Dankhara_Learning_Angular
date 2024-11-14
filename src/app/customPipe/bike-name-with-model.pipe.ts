@@ -8,7 +8,7 @@ import {Bike} from "../Shared/Bike";
 export class BikeNameWithModelPipe implements PipeTransform {
 
   transform(bike: Bike): string {
-    return `${bike.model} ${bike.name}`;
+    return `${bike.price*1.3}`;
   }
 
 }

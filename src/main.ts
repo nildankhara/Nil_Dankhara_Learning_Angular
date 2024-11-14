@@ -10,13 +10,15 @@ import {ModifyListItemComponent} from "./app/modify-list-item/modify-list-item.c
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'/bikes',pathMatch:'full'},
+  {path:'',redirectTo:'/bikes',pathMatch:'full'}, // Default route eagerly loaded
   { path: 'bikes', component: BikeListComponent },
-  { path: 'bikes/:number', component: BikeListItemComponent},
-  { path: 'modify-bike', component: ModifyListItemComponent},
+  { path: 'bikes/:number', loadComponent: () =>
+      import('./app/bike-list/bike-list.component').then(m => m.BikeListComponent)},
+  { path: 'modify-bike', loadComponent: () =>
+      import('./app/modify-list-item/modify-list-item.component').then(m => m.ModifyListItemComponent)},
   { path: 'modify-bike/:number', component: ModifyListItemComponent},
-  { path: '*', component: PageNotFoundComponent}
-
+  { path: '*', loadComponent: () =>
+      import('./app/page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent)},
 ];
 
 bootstrapApplication(AppComponent, {
