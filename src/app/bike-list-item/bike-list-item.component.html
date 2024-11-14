@@ -1,11 +1,11 @@
 <div *ngIf="bike">
-  <h1>Name:{{bike.name | uppercase}}</h1>
+  <h1 [style.color]="bike.isAdmin | roleColor">Name:{{bike.name | uppercase}}</h1>
     <h3>Number:{{bike.number}}</h3>
     <h4>
       <p>Model:{{bike.model}}</p>
       <p>Price:{{bike.price | currency: 'CAD': "symbol-narrow"}}</p>
       <p>Color:{{bike.color}}</p>
-      <p>IsAdmin:{{bike.isAdmin}}</p>
+      <p [style.color]="bike.isAdmin | roleColor">IsAdmin: {{bike.isAdmin}}</p>
       <p>Manufacture Date:{{bike.manuDate | date:'fullDate'}}</p>
 
         <img ngSrc="{{bike.imgURL}}" width="200" height="200" alt="">

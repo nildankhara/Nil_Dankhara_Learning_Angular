@@ -5,6 +5,7 @@ import {BikeService} from "../services/bike.service";
 import {Router} from "@angular/router";
 import {Observable, of} from "rxjs";
 import {BikeNameWithModelPipe} from "../customPipe/bike-name-with-model.pipe";
+import {RoleColorPipe} from "../customPipe/role-color.pipe";
 
 @Component({
   selector: 'app-bike-list-item',
@@ -15,7 +16,8 @@ import {BikeNameWithModelPipe} from "../customPipe/bike-name-with-model.pipe";
     CurrencyPipe,
     DatePipe,
     BikeNameWithModelPipe,
-    NgIf
+    NgIf,
+    RoleColorPipe
 
   ],
   templateUrl: './bike-list-item.component.html',
