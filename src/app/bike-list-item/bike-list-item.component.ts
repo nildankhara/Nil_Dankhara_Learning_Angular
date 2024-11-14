@@ -4,6 +4,7 @@ import {CurrencyPipe, DatePipe, NgIf, NgOptimizedImage, UpperCasePipe} from "@an
 import {BikeService} from "../services/bike.service";
 import {Router} from "@angular/router";
 import {Observable, of} from "rxjs";
+import {BikeNameWithModelPipe} from "../customPipe/bike-name-with-model.pipe";
 
 @Component({
   selector: 'app-bike-list-item',
@@ -12,7 +13,9 @@ import {Observable, of} from "rxjs";
     NgOptimizedImage,
     UpperCasePipe,
     CurrencyPipe,
-    DatePipe
+    DatePipe,
+    BikeNameWithModelPipe,
+    NgIf
 
   ],
   templateUrl: './bike-list-item.component.html',

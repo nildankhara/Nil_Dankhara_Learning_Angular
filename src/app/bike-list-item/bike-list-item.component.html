@@ -1,15 +1,17 @@
-<div>
-  <h1>Name:{{bike?.name | uppercase}}</h1>
-    <h3>Number:{{bike?.number}}</h3>
+<div *ngIf="bike">
+  <h1>Name:{{bike.name | uppercase}}</h1>
+    <h3>Number:{{bike.number}}</h3>
     <h4>
-      <p>Model:{{bike?.model}}</p>
-      <p>Price:{{bike?.price | currency: 'CAD': "symbol-narrow"}}</p>
-      <p>Color:{{bike?.color}}</p>
-      <p>IsAdmin:{{bike?.isAdmin}}</p>
-      <p>Manufacture Date:{{bike?.manuDate | date:'fullDate'}}</p>
+      <p>Model:{{bike.model}}</p>
+      <p>Price:{{bike.price | currency: 'CAD': "symbol-narrow"}}</p>
+      <p>Color:{{bike.color}}</p>
+      <p>IsAdmin:{{bike.isAdmin}}</p>
+      <p>Manufacture Date:{{bike.manuDate | date:'fullDate'}}</p>
 
-        <img ngSrc="{{bike?.imgURL}}" width="200" height="200" alt="">
+        <img ngSrc="{{bike.imgURL}}" width="200" height="200" alt="">
     </h4>
+
+    <h3>Custom Pipe: {{ bike | bikeNameWithModel }}</h3>
 </div>
 
 
