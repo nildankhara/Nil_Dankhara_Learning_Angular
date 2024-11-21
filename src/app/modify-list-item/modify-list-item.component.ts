@@ -5,6 +5,7 @@ import {Bike} from "../Shared/Bike";
 import {BikeService} from "../services/bike.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {bikeList} from "../data/mock-bike";
+import {HighlightOnFocusDirective} from "../directive/highlight-on-focus.directive";
 
 
 
@@ -14,7 +15,8 @@ import {bikeList} from "../data/mock-bike";
   standalone: true,
   imports: [
     PageNotFoundComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HighlightOnFocusDirective
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'

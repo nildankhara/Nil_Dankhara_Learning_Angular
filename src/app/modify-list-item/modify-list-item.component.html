@@ -1,7 +1,7 @@
 <form [formGroup]="bikeForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="number">Number</label>
-    <input type="number" id="number" min="0" formControlName="number" required/>
+    <input type="number" id="number" min="0" [appHighlightOnFocus]="'red'" [appHighlightOnBlur]="'green'" formControlName="number" required/>
   </div>
   <div>
     <label for="name">Name</label>
@@ -13,7 +13,7 @@
   </div>
   <div>
     <label for="color">Color</label>
-    <input type="text" id="color" formControlName="color" required />
+    <input type="text" id="color" [appHighlightOnFocus]="'red'" [appHighlightOnBlur]="'green'" formControlName="color" required />
   </div>
   <div>
     <label for="isAdmin">IsAdmin</label>

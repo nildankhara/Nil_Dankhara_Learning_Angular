@@ -7,6 +7,7 @@ import {Observable, of} from "rxjs";
 import {BikeNameWithModelPipe} from "../customPipe/bike-name-with-model.pipe";
 import {RoleColorPipe} from "../customPipe/role-color.pipe";
 import {HoverHighlightDirective} from "../directive/hover-highlight.directive";
+import {HighlightOnFocusDirective} from "../directive/highlight-on-focus.directive";
 
 @Component({
   selector: 'app-bike-list-item',
@@ -19,7 +20,8 @@ import {HoverHighlightDirective} from "../directive/hover-highlight.directive";
     BikeNameWithModelPipe,
     NgIf,
     RoleColorPipe,
-    HoverHighlightDirective
+    HoverHighlightDirective,
+    HighlightOnFocusDirective
 
   ],
   templateUrl: './bike-list-item.component.html',
