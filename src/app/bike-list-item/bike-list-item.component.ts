@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import {Observable, of} from "rxjs";
 import {BikeNameWithModelPipe} from "../customPipe/bike-name-with-model.pipe";
 import {RoleColorPipe} from "../customPipe/role-color.pipe";
+import {HoverHighlightDirective} from "../directive/hover-highlight.directive";
 
 @Component({
   selector: 'app-bike-list-item',
@@ -17,7 +18,8 @@ import {RoleColorPipe} from "../customPipe/role-color.pipe";
     DatePipe,
     BikeNameWithModelPipe,
     NgIf,
-    RoleColorPipe
+    RoleColorPipe,
+    HoverHighlightDirective
 
   ],
   templateUrl: './bike-list-item.component.html',
