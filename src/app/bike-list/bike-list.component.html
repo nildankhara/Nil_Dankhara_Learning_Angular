@@ -1,11 +1,15 @@
 
 
 <div *ngFor="let bikes of bikeList, let i = index; even as isEven" [ngStyle]="{'background-color': isEven ? 'skyblue' : 'indianred'}">
-
-  <app-bike-list-item [bike]="bikes" >
+<mat-card>
+  <app-bike-list-item [bike]="bikes">
   </app-bike-list-item>
-  <button (click)="onEdit(bikes)">Edit bike</button>
-  <button (click)="deleteBike(bikes.number)">Delete bike</button>
+</mat-card>
+
+  <button mat-fab color="primary"(click)="onEdit(bikes)"> <mat-icon>edit</mat-icon></button>
+  <button mat-fab (click)="deleteBike(bikes.number)">
+    <mat-icon>delete</mat-icon>
+  </button>
 </div>
 
 

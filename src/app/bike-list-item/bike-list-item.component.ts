@@ -1,18 +1,20 @@
 import {Component, Input, input} from '@angular/core';
 import {Bike} from "../Shared/Bike";
 import {CurrencyPipe, DatePipe, NgIf, NgOptimizedImage, UpperCasePipe} from "@angular/common";
-import {BikeService} from "../services/bike.service";
-import {Router} from "@angular/router";
-import {Observable, of} from "rxjs";
 import {BikeNameWithModelPipe} from "../customPipe/bike-name-with-model.pipe";
 import {RoleColorPipe} from "../customPipe/role-color.pipe";
 import {HoverHighlightDirective} from "../directive/hover-highlight.directive";
-import {HighlightOnFocusDirective} from "../directive/highlight-on-focus.directive";
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-bike-list-item',
   standalone: true,
   imports: [
+    MatDividerModule,
+    MatCardModule,
+    MatButtonModule,
     NgOptimizedImage,
     UpperCasePipe,
     CurrencyPipe,
@@ -21,7 +23,7 @@ import {HighlightOnFocusDirective} from "../directive/highlight-on-focus.directi
     NgIf,
     RoleColorPipe,
     HoverHighlightDirective,
-    HighlightOnFocusDirective
+
 
   ],
   templateUrl: './bike-list-item.component.html',

@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
-import {NgClass, NgForOf, NgStyle} from "@angular/common";
+import {NgForOf, NgStyle} from "@angular/common";
 import {Bike} from "../Shared/Bike";
 import {BikeListItemComponent} from "../bike-list-item/bike-list-item.component";
 import {BikeService} from "../services/bike.service";
 import {Router} from "@angular/router";
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 @Component({
   selector: 'app-bike-list',
@@ -11,8 +16,10 @@ import {Router} from "@angular/router";
   imports: [
     NgForOf,
     BikeListItemComponent,
-    NgClass,
-    NgStyle
+    NgStyle,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule
   ],
   templateUrl: './bike-list.component.html',
   styleUrl: './bike-list.component.css'

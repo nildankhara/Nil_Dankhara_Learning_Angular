@@ -1,8 +1,10 @@
+/*@import '@angular/material/prebuilt-themes/deeppurple-amber.css';*/
+
 /* General form styles */
 form {
   max-width: 400px; /* Maximum width of the form */
   margin: 20px auto; /* Center the form */
-  padding: 20px; /* Padding inside the form */
+  /*padding: 20px; !* Padding inside the form *!*/
   border: 1px solid #ccc; /* Border around the form */
   border-radius: 8px; /* Rounded corners */
   background-color: #f9f9f9; /* Light background color */
@@ -10,51 +12,50 @@ form {
 }
 
 /* Style for input fields */
-input[type="text"],
-input[type="number"],
-input[type="checkbox"] {
-  width: 100%; /* Full width for inputs */
-  padding: 10px; /* Padding inside inputs */
-  margin: 10px 0; /* Spacing between inputs */
-  border: 1px solid #ccc; /* Border for inputs */
-  border-radius: 4px; /* Rounded corners for inputs */
-  font-size: 16px; /* Font size */
-  transition: border-color 0.3s; /* Smooth transition for border color */
-}
+/*input[type="text"],*/
+/*!*input[type="number"],*!*/
+/*input[type="checkbox"] {*/
+/*  width: 100%; !* Full width for inputs *!*/
+/*  padding: 10px; !* Padding inside inputs *!*/
+/*  margin: 10px 0; !* Spacing between inputs *!*/
+/*  border: 1px solid #ccc; !* Border for inputs *!*/
+/*  border-radius: 4px; !* Rounded corners for inputs *!*/
+/*  font-size: 16px; !* Font size *!*/
+/*  transition: border-color 0.3s; !* Smooth transition for border color *!*/
+/*}*/
 
 /* Focus state for input fields */
-input[type="text"]:focus,
-input[type="number"]:focus {
-  border-color: #007bff; /* Change border color on focus */
-  outline: none; /* Remove default outline */
-}
+/*input[type="text"]:focus,*/
+/*input[type="number"]:focus {*/
+/*  border-color: #007bff; !* Change border color on focus *!*/
+/*  outline: none; !* Remove default outline *!*/
+/*}*/
 
 /* Style for labels */
-label {
-  font-weight: bold; /* Bold text for labels */
-  display: block; /* Block display for labels */
-  margin-bottom: 5px; /* Spacing below labels */
-}
+/*label {*/
+/*  font-weight: bold; !* Bold text for labels *!*/
+/*  display: block; !* Block display for labels *!*/
+/*  margin-bottom: 5px; !* Spacing below labels *!*/
+/*}*/
 
-/* Style for the submit button */
+/*!* Style for the submit button *!*/
 button {
-  background-color: #007bff; /* Button background color */
-  color: white; /* Text color */
-  padding: 10px 15px; /* Padding inside button */
-  border: none; /* No border */
-  border-radius: 4px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 16px; /* Font size */
-  transition: background-color 0.3s; /* Smooth transition for background color */
+  /*background-color: #007bff; !* Button background color *!*/
+  /*color: white; !* Text color *!*/
+  /*padding: 10px 15px; !* Padding inside button *!*/
+  /*border: none; !* No border *!*/
+  /*border-radius: 4px; !* Rounded corners *!*/
+  /*cursor: pointer; !* Pointer cursor on hover *!*/
+  /*font-size: 16px; !* Font size *!*/
+  /*transition: background-color 0.3s; !* Smooth transition for background color *!*/
 }
+/*button:hover{*/
+/*  color: blue;*/
 
-/* Hover state for the submit button */
-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-}
+/*}*/
 
-/* Style for checkbox */
-input[type="checkbox"] {
-  width: auto; /* Default width for checkboxes */
-  margin-right: 5px; /* Spacing between checkbox and label */
-}
+/*!* Style for checkbox *!*/
+/*input[type="checkbox"] {*/
+/*  width: auto; !* Default width for checkboxes *!*/
+/*  margin-right: 5px; !* Spacing between checkbox and label *!*/
+/*}*/

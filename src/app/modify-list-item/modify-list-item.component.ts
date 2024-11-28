@@ -1,22 +1,31 @@
 import {Component} from '@angular/core';
-import {PageNotFoundComponent} from "../page-not-found/page-not-found.component";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Bike} from "../Shared/Bike";
 import {BikeService} from "../services/bike.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {bikeList} from "../data/mock-bike";
 import {HighlightOnFocusDirective} from "../directive/highlight-on-focus.directive";
-
-
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckbox, MatCheckboxModule} from "@angular/material/checkbox";
+import {MatFormField, MatFormFieldModule, MatLabel} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
-    PageNotFoundComponent,
     ReactiveFormsModule,
-    HighlightOnFocusDirective
+    HighlightOnFocusDirective,
+    MatButtonModule,
+    MatDividerModule,
+    MatCheckbox,
+    MatLabel,
+    MatFormField,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatButtonModule
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'

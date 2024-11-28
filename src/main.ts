@@ -6,6 +6,7 @@ import {BikeListComponent} from "./app/bike-list/bike-list.component";
 import {BikeListItemComponent} from "./app/bike-list-item/bike-list-item.component";
 import {PageNotFoundComponent} from "./app/page-not-found/page-not-found.component";
 import {ModifyListItemComponent} from "./app/modify-list-item/modify-list-item.component";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 
@@ -22,5 +23,5 @@ const routes: Routes = [
 ];
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)]
+  providers: [provideRouter(routes), provideAnimationsAsync(), provideAnimationsAsync(), provideAnimationsAsync()]
 }).then(r => console.log('Bootstrap successful'));

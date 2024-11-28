@@ -1,28 +1,28 @@
 <form [formGroup]="bikeForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="number">Number</label>
-    <input type="number" id="number" min="0" [appHighlightOnFocus]="'red'" [appHighlightOnBlur]="'green'" formControlName="number" required/>
-  </div>
-  <div>
-    <label for="name">Name</label>
-    <input type="text" id="name" formControlName="name" required/>
-  </div>
-  <div>
-    <label for="model">Model</label>
-    <input type="number" id="model" formControlName="model" required/>
-  </div>
-  <div>
-    <label for="color">Color</label>
-    <input type="text" id="color" [appHighlightOnFocus]="'red'" [appHighlightOnBlur]="'green'" formControlName="color" required />
-  </div>
-  <div>
-    <label for="isAdmin">IsAdmin</label>
-    <input type="checkbox" id="isAdmin" formControlName="admin"/>
-  </div>  <div>
-<!--    <label for="image">Upload Image</label>-->
-<!--    <input type="file" id="image" formControlName="imgURL"/>-->
-<!--  </div>-->
 
-  <button type="submit" [disabled]="bikeForm.invalid">Submit</button>
-</div>
+  <mat-form-field appearance="fill">
+    <mat-label>Number</mat-label>
+    <input matInput type="number" id="number" min="0" [appHighlightOnFocus]="'red'" [appHighlightOnBlur]="'green'" formControlName="number" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" id="name" formControlName="name" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Model</mat-label>
+    <input matInput type="number" id="model" formControlName="model" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Color</mat-label>
+    <input matInput type="text" id="color" [appHighlightOnFocus]="'red'" [appHighlightOnBlur]="'green'" formControlName="color" required />
+  </mat-form-field>
+<br/>
+  <mat-checkbox formControlName="isAdmin">Is Admin</mat-checkbox>
+<br/>
+  <button mat-raised-button color="primary" type="submit" [disabled]="bikeForm.invalid">Submit</button>
+
+  <mat-divider></mat-divider>
 </form>
