@@ -6,8 +6,8 @@
   </app-bike-list-item>
 </mat-card>
 
-  <button mat-fab color="primary"(click)="onEdit(bikes)"> <mat-icon>edit</mat-icon></button>
-  <button mat-fab (click)="deleteBike(bikes.number)">
+  <button matTooltip="Edit this Bike" mat-fab color="primary"(click)="onEdit(bikes)"> <mat-icon>edit</mat-icon></button>
+  <button mat-fab matTooltip="Delete this Bike" (click)="deleteBike(bikes.number)">
     <mat-icon>delete</mat-icon>
   </button>
 </div>

@@ -9,12 +9,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCheckbox, MatCheckboxModule} from "@angular/material/checkbox";
 import {MatFormField, MatFormFieldModule, MatLabel} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
+    MatTooltipModule,
     ReactiveFormsModule,
     HighlightOnFocusDirective,
     MatButtonModule,

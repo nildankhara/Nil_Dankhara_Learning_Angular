@@ -1,28 +1,28 @@
 <form [formGroup]="bikeForm" (ngSubmit)="onSubmit()">
 
   <mat-form-field appearance="fill">
-    <mat-label>Number</mat-label>
+    <mat-label matTooltip="Only Digit">Number</mat-label>
     <input matInput type="number" id="number" min="0" [appHighlightOnFocus]="'red'" [appHighlightOnBlur]="'green'" formControlName="number" required />
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Name</mat-label>
+    <mat-label matTooltip="Hayabusa">Name</mat-label>
     <input matInput type="text" id="name" formControlName="name" required />
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Model</mat-label>
+    <mat-label matTooltip="Enter Year">Model</mat-label>
     <input matInput type="number" id="model" formControlName="model" required />
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Color</mat-label>
+    <mat-label matTooltip="Red || Yellow">Color</mat-label>
     <input matInput type="text" id="color" [appHighlightOnFocus]="'red'" [appHighlightOnBlur]="'green'" formControlName="color" required />
   </mat-form-field>
 <br/>
   <mat-checkbox formControlName="isAdmin">Is Admin</mat-checkbox>
 <br/>
-  <button mat-raised-button color="primary" type="submit" [disabled]="bikeForm.invalid">Submit</button>
+  <button mat-raised-button matTooltip="Save Filled Data" color="primary" type="submit" [disabled]="bikeForm.invalid">Submit</button>
 
   <mat-divider></mat-divider>
 </form>

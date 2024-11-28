@@ -1,16 +1,9 @@
+<mat-toolbar color="primary">
+  <span class="toolbar-title">Bike Management</span>
 
-
-<nav>
-  <ul>
-    <li><a routerLink="/bikes" routerLinkActive="active">Bikes</a></li>
-<!--    <li><a routerLink="/bikes/:number" routerLinkActive="active">Bike Number</a></li>-->
-    <li><a routerLink="/modify-bike/" routerLinkActive="active">Modify Bike</a></li>
-    <li><a routerLink="/*" routerLinkActive="active">Page not found</a></li>
-  </ul>
-</nav>
-
-
+  <button mat-button routerLink="/bikes" routerLinkActive="active">Bikes</button>
+  <button mat-button routerLink="/modify-bike" routerLinkActive="active">Modify Bike</button>
+  <button mat-button routerLink="/*" routerLinkActive="active">Page not found</button>
+</mat-toolbar>
 
 <router-outlet></router-outlet>
-<!--<app-bike-list-item [bike]="selectedBike"></app-bike-list-item>-->
-
